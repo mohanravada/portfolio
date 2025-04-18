@@ -52,6 +52,10 @@ body{
     text-transform: capitalize;
     font-weight: 600;
 }
+.btn:hover {
+    box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
+}
+
 .logo span{
     color: var(--main-color);
     text-transform: capitalize;
@@ -73,7 +77,17 @@ body{
 }
 section{
     padding:5rem 5%;
+
 }
+
+.navbar.active {
+    display: block;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .home{
     min-height: 110vh;
     display: flex;
@@ -154,6 +168,7 @@ section{
     color: var(--text-color);
     box-shadow: .1rem .5rem 1rem var(--main-color);
 }
+
 .home img{
     border-radius: 50%;
     height: 45rem;
