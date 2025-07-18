@@ -479,6 +479,125 @@ html {
     transform: translateY(-2rem);
     cursor: pointer;
 }
+
+.certifications-carousel {
+    min-height: 100vh;
+    padding: 4rem 5%;
+    background: var(--second-bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .certifications-carousel .heading {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    background: var(--bg-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 25px var(--main-color);
+    overflow: hidden;
+    padding: 2rem;
+  }
+  
+  .carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .carousel-slide:not(.active) {
+    display: none;
+  }
+  
+  .cert-img img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px var(--main-color);
+  }
+  
+  .cert-info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .cert-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cert-info .issuer {
+    color: var(--main-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cert-info .year {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--main-color);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease;
+  }
+  
+  .carousel-btn:hover {
+    background-color: var(--white);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--main-color);
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+  
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .carousel-dots .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .carousel-dots .dot.active {
+    opacity: 1;
+    background-color: var(--white);
+  }
+  
 .contact{
     min-height: 100vh;
     background-color: var(--bg-color);
@@ -593,4 +712,222 @@ html {
 .footer .credit p i,
 .footer .credit p span{
     color: var(--main-color);
+}
+.theme-toggle {
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light-mode {
+  --bg-color: #fff;
+  --second-bg-color: #f1f1f1;
+  --text-color: #111;
+  --main-color: #007bff;
+  --white: #e3e3e3;
+  --light-color: #333;
+}
+
+body.light-mode .theme-toggle i {
+  color: #111;
+}
+.header .navbar {
+  transition: all 0.3s ease;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header .navbar.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.projects {
+  background: var(--second-bg-color);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.projects .heading {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+
+.project-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+  background-color: var(--bg-color);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  background-color: var(--main-color);
+  color: var(--white);
+}
+.certifications {
+  background: var(--second-bg-color);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.certifications .cert-card {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s;
+}
+
+.certifications .cert-card img {
+  width: 100%;
+  border-radius: 1rem;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.certifications .cert-card:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth transition for theme changes */
+.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Default (dark mode) */
+body {
+  background: #111;
+  color: #f5f5f5;
+}
+
+/* Light mode */
+body.light-mode {
+  background: #fff;
+  color: #111;
+}
+
+/* Project section fix */
+.projects-section {
+  background: transparent;
+  color: inherit; /* inherit from body */
+}
+
+/* Optional: ensure cards also adapt */
+.projects-section .project-card {
+  background: rgba(255, 255, 255, 0.05); /* light translucent for dark mode */
+  color: inherit;
+}
+
+body.light-mode .projects-section .project-card {
+  background: #f9f9f9; /* light background in light mode */
+  color: #111; /* dark text in light mode */
+}
+
+/* Navbar toggle visibility fix */
+.navbar a {
+  color: inherit;
+}
+body.light-mode .navbar a {
+  color: #222;
+}
+html, body {
+  overflow-x: hidden;
+}
+:root {
+  --bg-dark: #080808;
+  --bg-light: #ffffff;
+  --text-dark: #eee;
+  --text-light: #222;
+  --card-dark: rgba(255,255,255,0.05);
+  --card-light: #f4f4f4;
+}
+
+/* Base styles */
+body {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+body.light-mode {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Project cards & hoverlights */
+.projects .project-card,
+.certifications .cert-card {
+  background: var(--card-dark);
+  color: inherit;
+}
+body.light-mode .projects .project-card,
+body.light-mode .certifications .cert-card {
+  background: var(--card-light);
+  color: var(--text-light);
+}
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(8,8,8,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  transition: background 0.3s;
+}
+body.light-mode .header {
+  background: rgba(255,255,255,0.8);
+}
+.projects .project-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5rem;
+}
+.home .content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.home {
+  background: linear-gradient(to bottom, rgba(8,8,8,0.8), transparent), url('bg.jpg') no-repeat center;
+  background-size: cover;
+}
+.contact .form-container {
+  max-width: 600px;
+  margin: auto;
+}
+.contact .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
