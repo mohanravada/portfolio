@@ -1,97 +1,80 @@
-@media(max-width:990px){
-    html{
-        font-size: 55.5%;
-} 
-    .home{
-        flex-flow: column-reverse;
-        padding: 8rem 0;
-         padding-top: 15rem;
-    }
+/* ======================
+   For tablets & small laptops
+====================== */
+@media (max-width: 990px) {
+  html { font-size: 55.5%; }
+
+  .home{
+    flex-flow: column-reverse;
+    padding: 8rem 0;
+    padding-top: 15rem;
+  }
+
+  .timeline-item{grid-template-columns:20px 100px 1fr}
+  .box-container{grid-template-columns:repeat(2,1fr)}
+  .testimonials .box-container{grid-template-columns:repeat(2,1fr)}
+  .project-container{grid-template-columns:repeat(2,1fr)}
 }
 
+/* ======================
+   For mobile devices
+====================== */
+@media (max-width: 700px) {
+  html { font-size: 50.5%; }
 
-@media(max-width:700px){
-    html{
-        font-size: 50.5%;
-    }
-    .home img{
-        height: 35rem;
-        width: 35rem;
-    }
-    .home{
-        padding: 8rem 0;
-    }
-    section{
-        padding: 1rem;
-    }
-    .header{
-        position: relative;
-        padding: 0;
-    }
-    .header .logo,
-    .header .menu{
-        padding: 1rem;
-    }
-    .menu i{
-        display: flex;
-    }
-    .header .navbar.active{
-        display: grid;
-    }
-    .header .navbar{
-        position: absolute;
-        top: 7rem;
-        display: none;
-        text-align: center;
-        justify-content: center;
-        background-color: var(--main-color);
-        width: 100%;
-        gap: 2rem;
-        padding: 1rem;
-    }
-    .header .navbar a#Home{
-        color: var(--text-color);
-        text-decoration: none;
-    }
-    .header .navbar a{
-        width: 100%;
-        padding: 1rem;
-    }
-    .header .navbar a:hover,
-    .header .navbar a#Home:hover
-    {
-        background-color: var(--white);
-        color: var(--main-color);
-        text-decoration: none;
+  .home img{ height: 35rem; width: 35rem; }
+  .home{ padding: 8rem 0; }
+  section{ padding: 1rem; }
 
-        
-    }
-}
-@media(max-width:450px){
-    
-    .home .content p{
-        width: 35rem;
-    }
-    .education .timeline-items{
-        display: grid;
+  .header{ position: relative; padding: 0; }
+  .header .logo, .header .menu { padding: 1rem; }
+  .menu i{ display: flex; }
 
-    }
-    .contact .form-container form{
-        display: grid;
-       
-    }
-    .contact .form-container form .inputs,
-    .contact .form-container form .text{
-    width: 100%;
-}
-.contact .form-container form .inputs .input,
-.contact .form-container form .text textarea{
-   
-    width: 100%;
-}
-.contact{
-    padding: 1rem 0;
+  /* Navbar hidden by default on mobile (animated) */
+  .header .navbar{
+    position:absolute; top:7rem; left:0; width:100%;
+    gap:2rem; padding:1rem; background-color:var(--main-color);
+    text-align:center; justify-content:center;
+    opacity:0; pointer-events:none; transform:translateY(-20px);
+    transition: all 0.3s ease;
+    display:flex; flex-direction:column;
+  }
+  .header .navbar.active{
+    opacity:1; pointer-events:auto; transform:translateY(0);
+  }
+
+  /* Make sure Home link gets correct color if needed */
+  .header .navbar a[href="#Home"]{
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .header .navbar a{ width:100%; padding:1rem; }
+  .header .navbar a:hover,
+  .header .navbar a[href="#Home"]:hover{
+    background-color: var(--white);
+    color: var(--main-color);
+    text-decoration: none;
+  }
+
+  .form-container form{flex-direction:column}
 }
 
+/* ======================
+   For extra-small devices
+====================== */
+@media (max-width: 450px) {
+  .home .content p{ max-width: 100%; } /* Prevent overflow */
 
+  .education .timeline-items{ display: grid; }
+  .contact .form-container form{ display: grid; }
+
+  /* Simplified: make all inputs & textarea full-width */
+  .contact input, .contact textarea{ width: 100%; }
+
+  .contact{ padding: 1rem 0; }
+
+  .project-container,
+  .box-container,
+  .testimonials .box-container{ grid-template-columns:1fr }
 }
